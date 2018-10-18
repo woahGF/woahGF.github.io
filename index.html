@@ -21,7 +21,7 @@
       _do();
 
       function _do() {
-      $('#requestsNumber').text(parseInt($('#requestsNumber').text() + 1);
+      $('#requestsNumber').text(parseInt($('#requestsNumber').text()) + 1);
         $.get('https://board.es.aion.gameforge.com/index.php/BoardQuickSearch/?mode=unreadPosts')
           .done(function(data) { setTimeout(_do, 500); })
           .fail(function(error) { setTimeout(_do, 500); });
